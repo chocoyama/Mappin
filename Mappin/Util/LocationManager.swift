@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager: NSObject {
     static let shared = LocationManager()
     
     private let locationManager = CLLocationManager()
@@ -25,18 +25,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         return self
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        handle(status)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let userLocation = locations.first else { return }
-        store?.dispatch(action: .map(.updateUserLocation(location: userLocation)))
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    }
-    
     private func handle(_ status: CLAuthorizationStatus) {
         switch status {
             case .notDetermined:
@@ -48,5 +36,19 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             @unknown default:
                 fatalError()
         }
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        handle(status)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let userLocation = locations.first else { return }
+        store?.dispatch(action: .map(.updateUserLocation(location: userLocation)))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     }
 }
