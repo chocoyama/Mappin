@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var store: Store<AppState, AppAction>
+    
     var body: some View {
-        MapView()
+        MapView(userLocation: store.state.map.userLocation)
     }
 }
 
