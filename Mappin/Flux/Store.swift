@@ -20,11 +20,11 @@ final class Store<State, Action>: ObservableObject {
         self.reducer = reducer
     }
     
-    func dispatch(_ action: Action) {
+    func dispatch(action: Action) {
         reducer.reduce(&state, action)
     }
     
-    func dispatch<E: Effect>(_ effect: E) where E.Action == Action {
+    func dispatch<E: Effect>(effect: E) where E.Action == Action {
         effect
             .mapToAction()
             .receive(on: DispatchQueue.main)
