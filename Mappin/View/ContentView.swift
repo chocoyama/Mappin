@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var tappingCurrentLocation: Bool = false
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        ZStack(alignment: .topTrailing) {
             MapView(userLocation: store.state.map.userLocation,
                     tappingCurrentLocation: $tappingCurrentLocation)
             
@@ -25,14 +25,15 @@ struct ContentView: View {
                 Image(systemName: "location.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .frame(width: 50, height: 50)
-                    .background(Color.blue)
-                    .clipShape(Circle())
+                    .foregroundColor(Color.blue)
+                    .frame(width: 20, height: 20)
+                    .padding(12.0)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
             }
-            .padding(.trailing, 24)
-            .padding(.bottom, 32)
+            .padding(.top, 16)
+            .padding(.trailing, 16)
         }
     }
 }
