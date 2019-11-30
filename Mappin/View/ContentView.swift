@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -39,31 +40,36 @@ struct ContentView: View {
             }
             
             MapMenuView()
-        }
+        }.gesture(
+            DragGesture()
+                .onChanged { _ in
+                    UIApplication.shared.hideKeyboard()
+                }
+        )
     }
 }
 
 struct MapMenuView: View {
     @State var dragOffset: CGFloat = .leastNormalMagnitude
+    private let searchQuery = PassthroughSubject<String, Never>()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
+            SearchBarView(text: searchQuery, placeholder: "場所または住所を検索します")
             HStack {
                 Text("Collection")
             }
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    
+                HStack(spacing: 16.0) {
                     ForEach(0..<20) { number in
                         Circle()
-                            .fill(Color.white)
                             .frame(width: 60, height: 60)
                     }
                 }
             }
         }
         .padding([.top, .bottom], 8.0)
-        .background(Color.red)
+        .background(Color.white)
         .offset(x: 0, y: dragOffset)
         .gesture(
             DragGesture(coordinateSpace: .global)
