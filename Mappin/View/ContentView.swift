@@ -61,22 +61,28 @@ struct SemiModalView<Content>: View where Content: View {
     }
     
     var body: some View {
-        content()
-            .padding([.top, .bottom], 8.0)
-            .background(Color.white)
-            .offset(x: 0, y: dragOffset)
-            .gesture(
-                DragGesture(coordinateSpace: .global)
-                    .onChanged { (value) in
-                        self.dragOffset = value.translation.height
-                        print("### \(self.dragOffset)")
+        VStack {
+            RoundedRectangle(cornerRadius: 8.0)
+                .fill(Color(UIColor.lightGray))
+                .frame(width: 40, height: 4)
+            
+            content()
+        }
+        .padding([.top, .bottom], 8.0)
+        .background(Color.white)
+        .offset(x: 0, y: dragOffset)
+        .gesture(
+            DragGesture(coordinateSpace: .global)
+                .onChanged { (value) in
+                    self.dragOffset = value.translation.height
+                    print("### \(self.dragOffset)")
+            }
+            .onEnded { (value) in
+                withAnimation(Animation.spring()) {
+                    self.dragOffset = 0.0
                 }
-                .onEnded { (value) in
-                    withAnimation(Animation.spring()) {
-                        self.dragOffset = 0.0
-                    }
-                }
-            )
+            }
+        )
     }
 }
 
@@ -85,15 +91,13 @@ struct MapMenuView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 8.0) {
-            RoundedRectangle(cornerRadius: 8.0)
-                .fill(Color.gray)
-                .frame(width: 40, height: 4)
-            
             SearchBarView(text: searchQuery, placeholder: "場所または住所を検索します")
                 .padding([.leading, .trailing], 8.0)
+                .padding(.top, -10.0)
             
             HStack {
                 Text("Collection")
+                    .foregroundColor(Color.gray)
                 Spacer()
             }.padding([.leading, .trailing], 16.0)
             
