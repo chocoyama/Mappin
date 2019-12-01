@@ -63,41 +63,43 @@ struct SemiModalView<Content>: View where Content: View {
             ) {
                 self.content()
                     .frame(width: UIScreen.main.bounds.width)
-                
-                Spacer()
             }
         }
-        .padding([.top, .bottom], 8.0)
+        .padding(.top, 8.0)
+        .padding(.bottom, 36.0)
         .background(Color.white)
         .offset(x: 0, y: self.dragOffset + self.position.offset)
         .gesture(
             DragGesture()
                 .onChanged { (value) in
-                    self.dragOffset = value.translation.height
-                    if self.position == .full && self.dragOffset > 0 && self.contentOffset <= .leastNormalMagnitude {
-                        withAnimation(.spring()) {
-                            self.contentOffset = 0.0
-                            self.position = self.position.smaller
-                            self.isUserInteractionEnabled = false
+                    if self.position == .full {
+                        if value.translation.height > 0 && self.contentOffset <= .leastNormalMagnitude {
+                            withAnimation(.spring()) {
+                                self.contentOffset = 0.0
+                                self.position = self.position.smaller
+                                self.isUserInteractionEnabled = false
+                            }
                         }
-                    }
-            }
-            .onEnded { (value) in
-                withAnimation(Animation.spring()) {
-                    self.dragOffset = 0.0
-                    if value.translation.height > 0 {
-                        self.position = self.position.smaller
                     } else {
-                        self.position = self.position.larger
-                    }
-                    
-                    switch self.position {
-                    case .full: self.isUserInteractionEnabled = true
-                    case .half: self.isUserInteractionEnabled = false
-                    case .compact: self.isUserInteractionEnabled = false
+                        self.dragOffset = value.translation.height
                     }
                 }
-            }
+                .onEnded { (value) in
+                    withAnimation(.spring()) {
+                        self.dragOffset = 0.0
+                        if value.translation.height > 0 {
+                            self.position = self.position.smaller
+                        } else {
+                            self.position = self.position.larger
+                        }
+                        
+                        switch self.position {
+                        case .full: self.isUserInteractionEnabled = true
+                        case .half: self.isUserInteractionEnabled = false
+                        case .compact: self.isUserInteractionEnabled = false
+                        }
+                    }
+                }
         )
     }
 }
@@ -119,7 +121,11 @@ struct ScrollableView<Content>: UIViewRepresentable where Content: View {
     @Binding var contentOffset: CGFloat
     @Binding var isUserInteractionEnabled: Bool
     
-    init(contentOffset: Binding<CGFloat>, isUserInteractionEnabled: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) {
+    init(
+        contentOffset: Binding<CGFloat>,
+        isUserInteractionEnabled: Binding<Bool>,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
         self._contentOffset = contentOffset
         self._isUserInteractionEnabled = isUserInteractionEnabled
         self.content = content
@@ -132,19 +138,11 @@ struct ScrollableView<Content>: UIViewRepresentable where Content: View {
     func makeUIView(context: UIViewRepresentableContext<ScrollableView>) -> UIScrollView {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
-        
         scrollView.delegate = context.coordinator
         
         let view = UIHostingController(rootView: content()).view!
-        scrollView.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            view.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            view.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            view.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            view.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            view.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
+        view.overlay(on: scrollView)
+        
         return scrollView
     }
     
