@@ -134,6 +134,47 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		6B7555102394041B00940CFA /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				6B7555082393FF1300940CFA /* SemiModalView.swift */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
+		6B7555112394043900940CFA /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA76122390DA340023DA2C /* ContentView.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		6B7555122394044A00940CFA /* Organisms */ = {
+			isa = PBXGroup;
+			children = (
+				6B75550A2393FF7A00940CFA /* MapMenuView.swift */,
+			);
+			path = Organisms;
+			sourceTree = "<group>";
+		};
+		6B7555132394045600940CFA /* Molecules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Molecules;
+			sourceTree = "<group>";
+		};
+		6B7555142394046F00940CFA /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA76402390DABC0023DA2C /* MapView.swift */,
+				6B75550E239403AD00940CFA /* MapActionButton.swift */,
+				6B3C7C1F239218BD0003853F /* SearchBarView.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
 		6B86EB732390E43100FC3568 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,12 +273,11 @@
 		6BEA763E2390DA590023DA2C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6B3C7C1F239218BD0003853F /* SearchBarView.swift */,
-				6BEA76122390DA340023DA2C /* ContentView.swift */,
-				6BEA76402390DABC0023DA2C /* MapView.swift */,
-				6B7555082393FF1300940CFA /* SemiModalView.swift */,
-				6B75550A2393FF7A00940CFA /* MapMenuView.swift */,
-				6B75550E239403AD00940CFA /* MapActionButton.swift */,
+				6B7555112394043900940CFA /* Page */,
+				6B7555102394041B00940CFA /* Template */,
+				6B7555122394044A00940CFA /* Organisms */,
+				6B7555132394045600940CFA /* Molecules */,
+				6B7555142394046F00940CFA /* Atoms */,
 			);
 			path = View;
 			sourceTree = "<group>";
