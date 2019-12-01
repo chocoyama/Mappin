@@ -18,6 +18,7 @@ struct MapMenuView: View {
                 .padding([.leading, .trailing], 8.0)
                 .padding(.top, -10.0)
             
+            PlaceCollectionCarouselView()
             PlaceCollectionPanelView(column: 4, maxLength: 4 * 2)
             PlaceCollectionPanelView(column: 4, maxLength: 4 * 2)
             PlaceCollectionPanelView(column: 4, maxLength: 4 * 2)

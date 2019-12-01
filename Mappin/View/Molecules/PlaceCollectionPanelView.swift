@@ -16,7 +16,7 @@ struct PlaceCollectionPanelView: View {
     }
     
     var body: some View {
-        Group {
+        VStack {
             MenuHeaderView(title: "Collection", buttonTitle: "Show All")
                 .padding([.leading, .trailing], 16.0)
             
