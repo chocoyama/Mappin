@@ -18,8 +18,8 @@ struct SemiModalView<Content>: View where Content: View {
             let screenHeight = UIScreen.main.bounds.height
             switch self {
             case .full: return screenHeight * (1 / 10)
-            case .half: return screenHeight * (7 / 10)
-            case .compact: return screenHeight * (9 / 10)
+            case .half: return screenHeight * (6 / 10)
+            case .compact: return screenHeight * (8.5 / 10)
             }
         }
         
@@ -68,12 +68,13 @@ struct SemiModalView<Content>: View where Content: View {
             }
             .padding(.top, 8.0)
             .padding(.bottom, geometry.safeAreaInsets.bottom + 8.0)
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             .offset(x: 0, y: self.dragOffset + self.position.offset)
             .gesture(
                 DragGesture()
                     .onChanged { (value) in
                         if self.position == .full {
+                            print("### \(value.translation.height) \(self.contentOffset) \(CGFloat.leastNormalMagnitude)")
                             if value.translation.height > 0 && self.contentOffset <= .leastNormalMagnitude {
                                 withAnimation(.spring()) {
                                     self.contentOffset = 0.0
@@ -141,6 +142,7 @@ private struct ScrollableView<Content>: UIViewRepresentable where Content: View 
         scrollView.showsVerticalScrollIndicator = false
         scrollView.alwaysBounceVertical = true
         scrollView.delegate = context.coordinator
+        scrollView.backgroundColor = .systemBackground
         
         let view = UIHostingController(rootView: content()).view!
         view.overlay(on: scrollView)
