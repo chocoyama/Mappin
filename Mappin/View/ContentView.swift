@@ -60,29 +60,38 @@ struct SemiModalView<Content>: View where Content: View {
         self.content = content
     }
     
+    func initialOffset(for geometryHeight: CGFloat) -> CGFloat {
+        geometryHeight * (7 / 10)
+    }
+    
     var body: some View {
-        VStack {
-            RoundedRectangle(cornerRadius: 8.0)
-                .fill(Color(UIColor.lightGray))
-                .frame(width: 40, height: 4)
-            
-            content()
-        }
-        .padding([.top, .bottom], 8.0)
-        .background(Color.white)
-        .offset(x: 0, y: dragOffset)
-        .gesture(
-            DragGesture(coordinateSpace: .global)
-                .onChanged { (value) in
-                    self.dragOffset = value.translation.height
-                    print("### \(self.dragOffset)")
+        GeometryReader { geometry in
+            VStack {
+                RoundedRectangle(cornerRadius: 8.0)
+                    .fill(Color(UIColor.lightGray))
+                    .frame(width: 40, height: 4)
+
+                self.content()
+
+                Spacer()
             }
-            .onEnded { (value) in
-                withAnimation(Animation.spring()) {
-                    self.dragOffset = 0.0
+            .frame(height: geometry.size.height)
+            .padding([.top, .bottom], 8.0)
+            .background(Color.red)
+            .offset(x: 0, y: self.dragOffset + self.initialOffset(for: geometry.size.height))
+            .gesture(
+                DragGesture(coordinateSpace: .global)
+                    .onChanged { (value) in
+                        self.dragOffset = value.translation.height
+                        print("### \(self.dragOffset)")
                 }
-            }
-        )
+                .onEnded { (value) in
+                    withAnimation(Animation.spring()) {
+                        self.dragOffset = 0.0
+                    }
+                }
+            )
+        }
     }
 }
 
@@ -94,7 +103,7 @@ struct MapMenuView: View {
             SearchBarView(text: searchQuery, placeholder: "場所または住所を検索します")
                 .padding([.leading, .trailing], 8.0)
                 .padding(.top, -10.0)
-            
+
             HStack {
                 Text("Collection")
                     .foregroundColor(Color.gray)
