@@ -13,42 +13,30 @@ struct ContentView: View {
     @State var tappingCurrentLocation: Bool = false
     
     var body: some View {
-        GeometryReader { (geometry: GeometryProxy) in
-            ZStack(alignment: .bottom) {
-                ZStack(alignment: .topTrailing) {
-                    MapView(userLocation: self.store.state.map.userLocation,
-                            tappingCurrentLocation: self.$tappingCurrentLocation)
-                    
-                    Button(action: {
-                        // Bindingで渡して一度falseにしないとupdateされなかった
-                        self.tappingCurrentLocation = false
-                        self.tappingCurrentLocation = true
-                    }) {
-                        Image(systemName: "location.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(Color.blue)
-                            .frame(width: 20, height: 20)
-                            .padding(12.0)
-                            .background(Color.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 8.0))
-                            .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
-                    }
-                    .padding(.top, 16)
-                    .padding(.trailing, 16)
-                }
+        ZStack(alignment: .bottom) {
+            ZStack(alignment: .topTrailing) {
+                MapView(userLocation: self.store.state.map.userLocation,
+                        tappingCurrentLocation: self.$tappingCurrentLocation)
                 
-                SemiModalView {
-                    MapMenuView()
+                MapActionButton {
+                    // Bindingで渡して一度falseにしないとupdateされなかった
+                    self.tappingCurrentLocation = false
+                    self.tappingCurrentLocation = true
                 }
+                .padding(.top, 16)
+                .padding(.trailing, 16)
             }
-            .gesture(
-                DragGesture()
-                    .onChanged { _ in
-                        UIApplication.shared.hideKeyboard()
-                }
-            )
+            
+            SemiModalView {
+                MapMenuView()
+            }
         }
+        .gesture(
+            DragGesture()
+                .onChanged { _ in
+                    UIApplication.shared.hideKeyboard()
+            }
+        )
     }
 }
 

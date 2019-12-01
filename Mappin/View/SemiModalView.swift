@@ -52,55 +52,57 @@ struct SemiModalView<Content>: View where Content: View {
     }
     
     var body: some View {
-        VStack {
-            RoundedRectangle(cornerRadius: 8.0)
-                .fill(Color(UIColor.lightGray))
-                .frame(width: 40, height: 4)
-            
-            ScrollableView(
-                contentOffset: self.$contentOffset,
-                isUserInteractionEnabled: self.$isUserInteractionEnabled
-            ) {
-                self.content()
-                    .frame(width: UIScreen.main.bounds.width)
+        GeometryReader { (geometry: GeometryProxy) in
+            VStack {
+                RoundedRectangle(cornerRadius: 8.0)
+                    .fill(Color(UIColor.lightGray))
+                    .frame(width: 40, height: 4)
+                
+                ScrollableView(
+                    contentOffset: self.$contentOffset,
+                    isUserInteractionEnabled: self.$isUserInteractionEnabled
+                ) {
+                    self.content()
+                        .frame(width: UIScreen.main.bounds.width)
+                }
             }
-        }
-        .padding(.top, 8.0)
-        .padding(.bottom, 36.0)
-        .background(Color.white)
-        .offset(x: 0, y: self.dragOffset + self.position.offset)
-        .gesture(
-            DragGesture()
-                .onChanged { (value) in
-                    if self.position == .full {
-                        if value.translation.height > 0 && self.contentOffset <= .leastNormalMagnitude {
-                            withAnimation(.spring()) {
-                                self.contentOffset = 0.0
+            .padding(.top, 8.0)
+            .padding(.bottom, geometry.safeAreaInsets.bottom + 8.0)
+            .background(Color.white)
+            .offset(x: 0, y: self.dragOffset + self.position.offset)
+            .gesture(
+                DragGesture()
+                    .onChanged { (value) in
+                        if self.position == .full {
+                            if value.translation.height > 0 && self.contentOffset <= .leastNormalMagnitude {
+                                withAnimation(.spring()) {
+                                    self.contentOffset = 0.0
+                                    self.position = self.position.smaller
+                                    self.isUserInteractionEnabled = false
+                                }
+                            }
+                        } else {
+                            self.dragOffset = value.translation.height
+                        }
+                    }
+                    .onEnded { (value) in
+                        withAnimation(.spring()) {
+                            self.dragOffset = 0.0
+                            if value.translation.height > 0 {
                                 self.position = self.position.smaller
-                                self.isUserInteractionEnabled = false
+                            } else {
+                                self.position = self.position.larger
+                            }
+                            
+                            switch self.position {
+                            case .full: self.isUserInteractionEnabled = true
+                            case .half: self.isUserInteractionEnabled = false
+                            case .compact: self.isUserInteractionEnabled = false
                             }
                         }
-                    } else {
-                        self.dragOffset = value.translation.height
                     }
-                }
-                .onEnded { (value) in
-                    withAnimation(.spring()) {
-                        self.dragOffset = 0.0
-                        if value.translation.height > 0 {
-                            self.position = self.position.smaller
-                        } else {
-                            self.position = self.position.larger
-                        }
-                        
-                        switch self.position {
-                        case .full: self.isUserInteractionEnabled = true
-                        case .half: self.isUserInteractionEnabled = false
-                        case .compact: self.isUserInteractionEnabled = false
-                        }
-                    }
-                }
-        )
+            )
+        }
     }
 }
 

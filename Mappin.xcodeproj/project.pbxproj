@@ -18,6 +18,7 @@
 		6B7555092393FF1300940CFA /* SemiModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7555082393FF1300940CFA /* SemiModalView.swift */; };
 		6B75550B2393FF7A00940CFA /* MapMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75550A2393FF7A00940CFA /* MapMenuView.swift */; };
 		6B75550D239401A900940CFA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75550C239401A900940CFA /* UIView+.swift */; };
+		6B75550F239403AD00940CFA /* MapActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75550E239403AD00940CFA /* MapActionButton.swift */; };
 		6B86EB782390E5FB00FC3568 /* gakudai.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6B86EB772390E5FB00FC3568 /* gakudai.gpx */; };
 		6B86EB7B2390F6B900FC3568 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB7A2390F6B900FC3568 /* State.swift */; };
 		6B86EB7D2390F6CB00FC3568 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB7C2390F6CB00FC3568 /* Store.swift */; };
@@ -64,6 +65,7 @@
 		6B7555082393FF1300940CFA /* SemiModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalView.swift; sourceTree = "<group>"; };
 		6B75550A2393FF7A00940CFA /* MapMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuView.swift; sourceTree = "<group>"; };
 		6B75550C239401A900940CFA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		6B75550E239403AD00940CFA /* MapActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActionButton.swift; sourceTree = "<group>"; };
 		6B86EB772390E5FB00FC3568 /* gakudai.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gakudai.gpx; sourceTree = "<group>"; };
 		6B86EB7A2390F6B900FC3568 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		6B86EB7C2390F6CB00FC3568 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				6BEA76402390DABC0023DA2C /* MapView.swift */,
 				6B7555082393FF1300940CFA /* SemiModalView.swift */,
 				6B75550A2393FF7A00940CFA /* MapMenuView.swift */,
+				6B75550E239403AD00940CFA /* MapActionButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				6B86EB7F2390F6FB00FC3568 /* Action.swift in Sources */,
 				6B1C30E323921A2A00636D3E /* UIApplication+.swift in Sources */,
 				6B86EB7B2390F6B900FC3568 /* State.swift in Sources */,
+				6B75550F239403AD00940CFA /* MapActionButton.swift in Sources */,
 				6B3C7C20239218BD0003853F /* SearchBarView.swift in Sources */,
 				6B1C30EF239398C800636D3E /* XibInitializable.swift in Sources */,
 				6B86EB832390F7F200FC3568 /* Effect.swift in Sources */,
