@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		6B1C30E323921A2A00636D3E /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30E223921A2A00636D3E /* UIApplication+.swift */; };
 		6B1C30E8239367AD00636D3E /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30E7239367AD00636D3E /* Row.swift */; };
+		6B1C30EF239398C800636D3E /* XibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30EE239398C800636D3E /* XibInitializable.swift */; };
+		6B1C30F32393996800636D3E /* ReusableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30F02393996700636D3E /* ReusableViewRegisterable.swift */; };
+		6B1C30F42393996800636D3E /* CellRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30F12393996700636D3E /* CellRegisterable.swift */; };
+		6B1C30F52393996800636D3E /* NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30F22393996800636D3E /* NibInstantiatable.swift */; };
 		6B3C7C1E239115BD0003853F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C7C1D239115BD0003853F /* LocationManager.swift */; };
 		6B3C7C20239218BD0003853F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C7C1F239218BD0003853F /* SearchBarView.swift */; };
+		6B7555092393FF1300940CFA /* SemiModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7555082393FF1300940CFA /* SemiModalView.swift */; };
+		6B75550B2393FF7A00940CFA /* MapMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75550A2393FF7A00940CFA /* MapMenuView.swift */; };
 		6B86EB782390E5FB00FC3568 /* gakudai.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6B86EB772390E5FB00FC3568 /* gakudai.gpx */; };
 		6B86EB7B2390F6B900FC3568 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB7A2390F6B900FC3568 /* State.swift */; };
 		6B86EB7D2390F6CB00FC3568 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB7C2390F6CB00FC3568 /* Store.swift */; };
@@ -48,8 +54,14 @@
 /* Begin PBXFileReference section */
 		6B1C30E223921A2A00636D3E /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		6B1C30E7239367AD00636D3E /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		6B1C30EE239398C800636D3E /* XibInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibInitializable.swift; sourceTree = "<group>"; };
+		6B1C30F02393996700636D3E /* ReusableViewRegisterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewRegisterable.swift; sourceTree = "<group>"; };
+		6B1C30F12393996700636D3E /* CellRegisterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellRegisterable.swift; sourceTree = "<group>"; };
+		6B1C30F22393996800636D3E /* NibInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
 		6B3C7C1D239115BD0003853F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6B3C7C1F239218BD0003853F /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		6B7555082393FF1300940CFA /* SemiModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalView.swift; sourceTree = "<group>"; };
+		6B75550A2393FF7A00940CFA /* MapMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuView.swift; sourceTree = "<group>"; };
 		6B86EB772390E5FB00FC3568 /* gakudai.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gakudai.gpx; sourceTree = "<group>"; };
 		6B86EB7A2390F6B900FC3568 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		6B86EB7C2390F6CB00FC3568 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -106,9 +118,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		6B1C30ED239398BF00636D3E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C30F12393996700636D3E /* CellRegisterable.swift */,
+				6B1C30F22393996800636D3E /* NibInstantiatable.swift */,
+				6B1C30F02393996700636D3E /* ReusableViewRegisterable.swift */,
+				6B1C30EE239398C800636D3E /* XibInitializable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		6B86EB732390E43100FC3568 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6B1C30ED239398BF00636D3E /* Protocol */,
 				6B1C30E123921A0300636D3E /* Extension */,
 				6B3C7C1D239115BD0003853F /* LocationManager.swift */,
 				6B1C30E7239367AD00636D3E /* Row.swift */,
@@ -206,6 +230,8 @@
 				6B3C7C1F239218BD0003853F /* SearchBarView.swift */,
 				6BEA76122390DA340023DA2C /* ContentView.swift */,
 				6BEA76402390DABC0023DA2C /* MapView.swift */,
+				6B7555082393FF1300940CFA /* SemiModalView.swift */,
+				6B75550A2393FF7A00940CFA /* MapMenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,18 +375,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B75550B2393FF7A00940CFA /* MapMenuView.swift in Sources */,
+				6B1C30F52393996800636D3E /* NibInstantiatable.swift in Sources */,
+				6B1C30F32393996800636D3E /* ReusableViewRegisterable.swift in Sources */,
 				6B86EB7D2390F6CB00FC3568 /* Store.swift in Sources */,
 				6BEA760F2390DA340023DA2C /* AppDelegate.swift in Sources */,
+				6B7555092393FF1300940CFA /* SemiModalView.swift in Sources */,
 				6B3C7C1E239115BD0003853F /* LocationManager.swift in Sources */,
 				6B1C30E8239367AD00636D3E /* Row.swift in Sources */,
 				6BEA76412390DABC0023DA2C /* MapView.swift in Sources */,
 				6BEA76112390DA340023DA2C /* SceneDelegate.swift in Sources */,
 				6BEA76132390DA340023DA2C /* ContentView.swift in Sources */,
 				6B86EB812390F73400FC3568 /* Reducer.swift in Sources */,
+				6B1C30F42393996800636D3E /* CellRegisterable.swift in Sources */,
 				6B86EB7F2390F6FB00FC3568 /* Action.swift in Sources */,
 				6B1C30E323921A2A00636D3E /* UIApplication+.swift in Sources */,
 				6B86EB7B2390F6B900FC3568 /* State.swift in Sources */,
 				6B3C7C20239218BD0003853F /* SearchBarView.swift in Sources */,
+				6B1C30EF239398C800636D3E /* XibInitializable.swift in Sources */,
 				6B86EB832390F7F200FC3568 /* Effect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
