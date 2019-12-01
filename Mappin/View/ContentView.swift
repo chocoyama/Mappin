@@ -70,14 +70,15 @@ struct SemiModalView<Content>: View where Content: View {
                 RoundedRectangle(cornerRadius: 8.0)
                     .fill(Color(UIColor.lightGray))
                     .frame(width: 40, height: 4)
-
+                
                 self.content()
+                    .frame(width: geometry.size.width)
 
                 Spacer()
             }
             .frame(height: geometry.size.height)
             .padding([.top, .bottom], 8.0)
-            .background(Color.red)
+            .background(Color.white)
             .offset(x: 0, y: self.dragOffset + self.initialOffset(for: geometry.size.height))
             .gesture(
                 DragGesture(coordinateSpace: .global)
@@ -97,6 +98,11 @@ struct SemiModalView<Content>: View where Content: View {
 
 struct MapMenuView: View {
     private let searchQuery = PassthroughSubject<String, Never>()
+    private let rows = Row.build(
+        forColumn: 4,
+        values: Array(0..<22),
+        maxLength: 4 * 2
+    )
     
     var body: some View {
         VStack(alignment: .center, spacing: 8.0) {
@@ -108,16 +114,26 @@ struct MapMenuView: View {
                 Text("Collection")
                     .foregroundColor(Color.gray)
                 Spacer()
+                Button(action: {
+                    
+                }) {
+                    Text("Show All")
+                }
             }.padding([.leading, .trailing], 16.0)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0.0) {
-                    ForEach(0..<20) { number in
+            ForEach(rows) { row in
+                HStack(spacing: 8.0) {
+                    ForEach(row.items, id: \.self) { item in
                         Circle()
-                            .frame(width: 60, height: 60)
-                            .padding(8.0)
                     }
-                }.padding([.leading, .trailing], 8.0)
+                    if !row.isFitting {
+                        ForEach(0..<row.emptyColumnCount) { _ in
+                            Circle().hidden()
+                        }
+                    }
+                }
+                .frame(height: 60)
+                .padding([.top, .bottom], 8.0)
             }
         }
     }

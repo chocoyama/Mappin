@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B1C30E323921A2A00636D3E /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30E223921A2A00636D3E /* UIApplication+.swift */; };
+		6B1C30E8239367AD00636D3E /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30E7239367AD00636D3E /* Row.swift */; };
 		6B3C7C1E239115BD0003853F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C7C1D239115BD0003853F /* LocationManager.swift */; };
 		6B3C7C20239218BD0003853F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C7C1F239218BD0003853F /* SearchBarView.swift */; };
 		6B86EB782390E5FB00FC3568 /* gakudai.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6B86EB772390E5FB00FC3568 /* gakudai.gpx */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		6B1C30E223921A2A00636D3E /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		6B1C30E7239367AD00636D3E /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		6B3C7C1D239115BD0003853F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6B3C7C1F239218BD0003853F /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		6B86EB772390E5FB00FC3568 /* gakudai.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gakudai.gpx; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				6B1C30E123921A0300636D3E /* Extension */,
 				6B3C7C1D239115BD0003853F /* LocationManager.swift */,
+				6B1C30E7239367AD00636D3E /* Row.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				6B86EB7D2390F6CB00FC3568 /* Store.swift in Sources */,
 				6BEA760F2390DA340023DA2C /* AppDelegate.swift in Sources */,
 				6B3C7C1E239115BD0003853F /* LocationManager.swift in Sources */,
+				6B1C30E8239367AD00636D3E /* Row.swift in Sources */,
 				6BEA76412390DABC0023DA2C /* MapView.swift in Sources */,
 				6BEA76112390DA340023DA2C /* SceneDelegate.swift in Sources */,
 				6BEA76132390DA340023DA2C /* ContentView.swift in Sources */,
