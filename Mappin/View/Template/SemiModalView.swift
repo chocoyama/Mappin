@@ -74,7 +74,6 @@ struct SemiModalView<Content>: View where Content: View {
                 DragGesture()
                     .onChanged { (value) in
                         if self.position == .full {
-                            print("### \(value.translation.height) \(self.contentOffset) \(CGFloat.leastNormalMagnitude)")
                             if value.translation.height > 0 && self.contentOffset <= .leastNormalMagnitude {
                                 withAnimation(.spring()) {
                                     self.contentOffset = 0.0
@@ -108,7 +107,7 @@ private struct ScrollableView<Content>: UIViewRepresentable where Content: View 
     class Coordinator: NSObject, UIScrollViewDelegate {
         private let scrollableView: ScrollableView
         
-        init(scrollableView: ScrollableView) {
+        init(_ scrollableView: ScrollableView) {
             self.scrollableView = scrollableView
         }
         
@@ -134,7 +133,7 @@ private struct ScrollableView<Content>: UIViewRepresentable where Content: View 
     }
     
     func makeCoordinator() -> ScrollableView<Content>.Coordinator {
-        Coordinator(scrollableView: self)
+        Coordinator(self)
     }
     
     func makeUIView(context: UIViewRepresentableContext<ScrollableView>) -> UIScrollView {
