@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUICatalog
 
 struct SemiModalView<Content>: View where Content: View {
     enum Position {
