@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUICatalog
 
 struct ContentView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>

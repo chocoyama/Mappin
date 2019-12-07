@@ -73,13 +73,15 @@ struct SemiModalView<Content>: View where Content: View {
             .gesture(
                 DragGesture()
                     .onChanged { (value) in
+                        self.isUserInteractionEnabled = false
                         if self.position == .full {
                             if value.translation.height > 0 && self.contentOffset <= .leastNormalMagnitude {
                                 withAnimation(.spring()) {
                                     self.contentOffset = 0.0
                                     self.position = self.position.smaller
-                                    self.isUserInteractionEnabled = false
                                 }
+                            } else {
+                                self.isUserInteractionEnabled = true
                             }
                         } else {
                             self.dragOffset = value.translation.height
@@ -88,14 +90,9 @@ struct SemiModalView<Content>: View where Content: View {
                     .onEnded { (value) in
                         withAnimation(.spring()) {
                             let position = value.translation.height > 0 ? self.position.smaller : self.position.larger
-                            switch position {
-                            case .full: self.isUserInteractionEnabled = true
-                            case .half: self.isUserInteractionEnabled = false
-                            case .compact: self.isUserInteractionEnabled = false
-                            }
-                            
                             self.dragOffset = 0.0
                             self.position = position
+                            self.isUserInteractionEnabled = true
                         }
                     }
             )
@@ -106,12 +103,14 @@ struct SemiModalView<Content>: View where Content: View {
 private struct ScrollableView<Content>: UIViewRepresentable where Content: View {
     class Coordinator: NSObject, UIScrollViewDelegate {
         private let scrollableView: ScrollableView
+        private var previousOffset: CGPoint?
         
         init(_ scrollableView: ScrollableView) {
             self.scrollableView = scrollableView
         }
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            self.previousOffset = scrollView.contentOffset
             DispatchQueue.main.async {
                 self.scrollableView.contentOffset = scrollView.contentOffset.y
             }
@@ -150,7 +149,6 @@ private struct ScrollableView<Content>: UIViewRepresentable where Content: View 
     }
     
     func updateUIView(_ uiView: UIScrollView, context: UIViewRepresentableContext<ScrollableView>) {
-//        uiView.isScrollEnabled = isUserInteractionEnabled
         uiView.isUserInteractionEnabled = isUserInteractionEnabled
     }
 }

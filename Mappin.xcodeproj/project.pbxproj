@@ -3,18 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B1C30E323921A2A00636D3E /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30E223921A2A00636D3E /* UIApplication+.swift */; };
-		6B1C30E8239367AD00636D3E /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30E7239367AD00636D3E /* Row.swift */; };
 		6B1C30EF239398C800636D3E /* XibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30EE239398C800636D3E /* XibInitializable.swift */; };
 		6B1C30F32393996800636D3E /* ReusableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30F02393996700636D3E /* ReusableViewRegisterable.swift */; };
 		6B1C30F42393996800636D3E /* CellRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30F12393996700636D3E /* CellRegisterable.swift */; };
 		6B1C30F52393996800636D3E /* NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C30F22393996800636D3E /* NibInstantiatable.swift */; };
 		6B3C7C1E239115BD0003853F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C7C1D239115BD0003853F /* LocationManager.swift */; };
-		6B3C7C20239218BD0003853F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C7C1F239218BD0003853F /* SearchBarView.swift */; };
 		6B7555092393FF1300940CFA /* SemiModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7555082393FF1300940CFA /* SemiModalView.swift */; };
 		6B75550B2393FF7A00940CFA /* MapMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75550A2393FF7A00940CFA /* MapMenuView.swift */; };
 		6B75550D239401A900940CFA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75550C239401A900940CFA /* UIView+.swift */; };
@@ -25,6 +22,7 @@
 		6B86EB7F2390F6FB00FC3568 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB7E2390F6FB00FC3568 /* Action.swift */; };
 		6B86EB812390F73400FC3568 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB802390F73400FC3568 /* Reducer.swift */; };
 		6B86EB832390F7F200FC3568 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86EB822390F7F200FC3568 /* Effect.swift */; };
+		6B8CD0A5239B569500A323B3 /* SwiftUICatalog in Frameworks */ = {isa = PBXBuildFile; productRef = 6B8CD0A4239B569500A323B3 /* SwiftUICatalog */; };
 		6B96E6442394059900F42647 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96E6432394059900F42647 /* MenuHeaderView.swift */; };
 		6B96E6462394065800F42647 /* PlaceCollectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96E6452394065800F42647 /* PlaceCollectionItemView.swift */; };
 		6B96E6482394070600F42647 /* PlaceCollectionPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96E6472394070600F42647 /* PlaceCollectionPanelView.swift */; };
@@ -58,14 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B1C30E223921A2A00636D3E /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
-		6B1C30E7239367AD00636D3E /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		6B1C30EE239398C800636D3E /* XibInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibInitializable.swift; sourceTree = "<group>"; };
 		6B1C30F02393996700636D3E /* ReusableViewRegisterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewRegisterable.swift; sourceTree = "<group>"; };
 		6B1C30F12393996700636D3E /* CellRegisterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellRegisterable.swift; sourceTree = "<group>"; };
 		6B1C30F22393996800636D3E /* NibInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
 		6B3C7C1D239115BD0003853F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		6B3C7C1F239218BD0003853F /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		6B7555082393FF1300940CFA /* SemiModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalView.swift; sourceTree = "<group>"; };
 		6B75550A2393FF7A00940CFA /* MapMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuView.swift; sourceTree = "<group>"; };
 		6B75550C239401A900940CFA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -102,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B8CD0A5239B569500A323B3 /* SwiftUICatalog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +121,6 @@
 		6B1C30E123921A0300636D3E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				6B1C30E223921A2A00636D3E /* UIApplication+.swift */,
 				6B75550C239401A900940CFA /* UIView+.swift */,
 			);
 			path = Extension;
@@ -180,7 +175,6 @@
 			children = (
 				6BEA76402390DABC0023DA2C /* MapView.swift */,
 				6B75550E239403AD00940CFA /* MapActionButton.swift */,
-				6B3C7C1F239218BD0003853F /* SearchBarView.swift */,
 				6B96E6432394059900F42647 /* MenuHeaderView.swift */,
 				6B96E6452394065800F42647 /* PlaceCollectionItemView.swift */,
 			);
@@ -193,7 +187,6 @@
 				6B1C30ED239398BF00636D3E /* Protocol */,
 				6B1C30E123921A0300636D3E /* Extension */,
 				6B3C7C1D239115BD0003853F /* LocationManager.swift */,
-				6B1C30E7239367AD00636D3E /* Row.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -244,7 +237,6 @@
 				6B86EB792390F6A900FC3568 /* Flux */,
 				6B86EB762390E5E400FC3568 /* Resource */,
 				6B86EB732390E43100FC3568 /* Util */,
-				6BEA763F2390DA5D0023DA2C /* ViewController */,
 				6BEA763E2390DA590023DA2C /* View */,
 				6BEA760E2390DA340023DA2C /* AppDelegate.swift */,
 				6BEA76102390DA340023DA2C /* SceneDelegate.swift */,
@@ -294,13 +286,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6BEA763F2390DA5D0023DA2C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,6 +302,9 @@
 			dependencies = (
 			);
 			name = Mappin;
+			packageProductDependencies = (
+				6B8CD0A4239B569500A323B3 /* SwiftUICatalog */,
+			);
 			productName = Mappin;
 			productReference = 6BEA760B2390DA340023DA2C /* Mappin.app */;
 			productType = "com.apple.product-type.application";
@@ -389,6 +377,9 @@
 				Base,
 			);
 			mainGroup = 6BEA76022390DA340023DA2C;
+			packageReferences = (
+				6B8CD0A3239B569500A323B3 /* XCRemoteSwiftPackageReference "SwiftUICatalog" */,
+			);
 			productRefGroup = 6BEA760C2390DA340023DA2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,17 +433,14 @@
 				6BEA760F2390DA340023DA2C /* AppDelegate.swift in Sources */,
 				6B7555092393FF1300940CFA /* SemiModalView.swift in Sources */,
 				6B3C7C1E239115BD0003853F /* LocationManager.swift in Sources */,
-				6B1C30E8239367AD00636D3E /* Row.swift in Sources */,
 				6BEA76412390DABC0023DA2C /* MapView.swift in Sources */,
 				6BEA76112390DA340023DA2C /* SceneDelegate.swift in Sources */,
 				6BEA76132390DA340023DA2C /* ContentView.swift in Sources */,
 				6B86EB812390F73400FC3568 /* Reducer.swift in Sources */,
 				6B1C30F42393996800636D3E /* CellRegisterable.swift in Sources */,
 				6B86EB7F2390F6FB00FC3568 /* Action.swift in Sources */,
-				6B1C30E323921A2A00636D3E /* UIApplication+.swift in Sources */,
 				6B86EB7B2390F6B900FC3568 /* State.swift in Sources */,
 				6B75550F239403AD00940CFA /* MapActionButton.swift in Sources */,
-				6B3C7C20239218BD0003853F /* SearchBarView.swift in Sources */,
 				6B1C30EF239398C800636D3E /* XibInitializable.swift in Sources */,
 				6B96E6482394070600F42647 /* PlaceCollectionPanelView.swift in Sources */,
 				6B96E6442394059900F42647 /* MenuHeaderView.swift in Sources */,
@@ -782,6 +770,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6B8CD0A3239B569500A323B3 /* XCRemoteSwiftPackageReference "SwiftUICatalog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:chocoyama/SwiftUICatalog.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B8CD0A4239B569500A323B3 /* SwiftUICatalog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B8CD0A3239B569500A323B3 /* XCRemoteSwiftPackageReference "SwiftUICatalog" */;
+			productName = SwiftUICatalog;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6BEA76032390DA340023DA2C /* Project object */;
 }

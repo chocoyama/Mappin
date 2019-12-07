@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUICatalog
 
 struct PlaceCollectionPanelView: View {
     private let rows: [Row<Int>]

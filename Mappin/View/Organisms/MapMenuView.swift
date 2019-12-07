@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import SwiftUICatalog
 
 struct MapMenuView: View {
     private let searchQuery = PassthroughSubject<String, Never>()

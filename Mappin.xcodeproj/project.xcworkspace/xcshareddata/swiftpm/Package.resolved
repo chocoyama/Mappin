@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftUICatalog",
+        "repositoryURL": "git@github.com:chocoyama/SwiftUICatalog.git",
+        "state": {
+          "branch": null,
+          "revision": "085cc654228653b7483386ffcdd1e671c28d0d47",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
